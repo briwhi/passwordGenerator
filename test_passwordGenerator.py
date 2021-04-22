@@ -27,6 +27,10 @@ class TestPasswordGenerator(unittest.TestCase):
         self.pg.add_characters(self.pg.LOWERCASE)
         characters = string.ascii_lowercase
         self.assertIn(characters, self.pg.characters)
+
+    def test_default_string(self):
+        source = self.pg.get_source_string()
+        print(source)
         
 
 if __name__ == '__main__':

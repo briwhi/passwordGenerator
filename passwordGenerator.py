@@ -9,7 +9,7 @@ class PasswordGenerator:
     def __init__(self):
         self.pw = "password"
         self.length = 10
-        self.characters = []
+        self.characters = [self.LOWERCASE, self.UPPERCASE, self.NUMBERS]
 
     def generate_password(self):
         pass
@@ -22,3 +22,9 @@ class PasswordGenerator:
 
     def add_characters(self, character_type):
         self.characters.append(character_type)
+
+    def get_source_string(self):
+        source_string = ""
+        for s in self.characters:
+            source_string.join(s)
+        return source_string
