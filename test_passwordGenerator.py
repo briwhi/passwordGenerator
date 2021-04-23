@@ -9,6 +9,8 @@ class TestPasswordGenerator(unittest.TestCase):
     
     def test_generate_password(self):
         self.pg.generate_password()
+        length = self.pg.length
+        self.assertEqual(length, len(self.pg.pw))
 
     def test_get_password(self):
         pw = self.pg.get_password()
@@ -24,14 +26,14 @@ class TestPasswordGenerator(unittest.TestCase):
         self.assertEqual(10, length)
 
     def test_add_characters(self):
-        self.pg.add_characters(self.pg.LOWERCASE)
-        characters = string.ascii_lowercase
+        self.pg.add_characters(self.pg.SPECIAL)
+        characters = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
         self.assertIn(characters, self.pg.characters)
 
-    def test_default_string(self):
+    def test_default_source__string(self):
         source = self.pg.get_source_string()
-        print(source)
-        
+        self.assertEqual('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', source)
 
+    
 if __name__ == '__main__':
     unittest.main()
