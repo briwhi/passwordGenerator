@@ -17,11 +17,10 @@ class PasswordGenerator:
 
     def generate_password(self):
         self.pw = ""
-        for c in range(0,self.length):
-            end = len(self.get_source_string())-1
-            i = randint(0,end)
-            self.pw.join(self.source_string[i])
-            print(self.pw)
+        for x in range(self.length):
+            i = randint(0, len(self.characters)-1)
+            char = self.get_source_string()[i]
+            self.pw += char
 
     def get_password(self):
         return self.pw
@@ -35,3 +34,6 @@ class PasswordGenerator:
     def get_source_string(self):
         self.source_string = "".join(self.characters)
         return self.source_string
+        
+
+

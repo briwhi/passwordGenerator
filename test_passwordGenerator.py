@@ -10,6 +10,7 @@ class TestPasswordGenerator(unittest.TestCase):
     def test_generate_password(self):
         self.pg.generate_password()
         length = self.pg.length
+        print(self.pg.pw)
         self.assertEqual(length, len(self.pg.pw))
 
     def test_get_password(self):
