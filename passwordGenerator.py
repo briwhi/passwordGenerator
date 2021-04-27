@@ -11,16 +11,16 @@ class PasswordGenerator:
 
     def __init__(self):
         self.pw = "password"
-        self.length = 10
         self.characters = [self.LOWERCASE, self.UPPERCASE, self.NUMBERS]
         self.source_string = ""
 
-    def generate_password(self):
+    def generate_password(self, length=10):
         self.pw = ""
-        for x in range(self.length):
+        for x in range(length):
             i = randint(0, len(self.characters)-1)
             char = self.get_source_string()[i]
             self.pw += char
+        return self.pw
 
     def get_password(self):
         return self.pw
